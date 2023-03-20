@@ -7,15 +7,14 @@
     <title>homework4</title>
 </head>
 <body>
-<script>let myStr = 'аdwifjisdfjаааdfssdfsdsdfsdfdаоеуэюббf';
-    function vowels(a){
-      let result = 0;
-      a = a.toUpperCase()
-      for(let elem of a){
-        if(elem == 'Й' || elem == 'У' || elem == 'Е' || elem == 'Ы' ||elem == 'А' ||  elem == 'О' || elem == 'Э' || elem == 'Я' || elem == 'И' || elem == 'И' || elem == 'Ю'){
-            result++;
-        }else;
-    } return result;
-    }console.log(vowels(myStr));</script>
+<script>
+      let myStr = 'аdwifjisdfjаааdfssdfsdsdfsdfdаоеуэюббf';
+function vowels(a){
+  let result = 0,
+      resultA=0;
+    result = a.replace(/['ЙУЕЫАОЭЯИЮ']/gi, '');
+    resultA = a.length - result.length;
+ return resultA;
+}console.log(vowels(myStr));</script>
 </body>
 </html>

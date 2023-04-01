@@ -4,20 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homework4</title>
+    <title>HOMEWORK</title>
 </head>
 <body>
-<script>
-      let myStr = 'ыыыаааюююывапвапвпвапвапавп';
-function vowels(a){
-    let result = 0,
-        controlArray = ['Й','У','Е','Ы','А','О','Э','Я','И','Ю'];
-        a = a.toUpperCase();
-    for(element of a){
-        if (controlArray.includes(element)){
-            result++;
+    <script>let myStr = prompt('Please enter text only:');
+
+
+        function vowels(a) {
+            let result = 0;
+            controleArray = new Array('Й', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю');
+            a = a.toUpperCase().split('');
+            a.forEach(element => {
+                controleArray.forEach(elem => {
+                (element == elem)?result++:false;
+                });
+            });return result
         }
-    }return result;
-}console.log(vowels(myStr));</script>
+        
+        
+        
+        
+        function myReduce(myStr1){
+            const controlStr = 'ЙУЕЫАОЭЯИЮ';
+            const arrStr = myStr1.toUpperCase().split('');
+            const newReduceStr = arrStr.reduce((acc,item)=>{
+                if(!controlStr.includes(item)){return acc;}
+                else{return acc+1;}
+                },0);
+                return newReduceStr;
+         }
+        
+        
+        
+         function myFilter(myStr2){
+            const arrStr1 = myStr2.toUpperCase().split('');
+            const controlStr1 = 'ЙУЕЫАОЭЯИЮ';
+            const result2 = arrStr1.filter(elem=>!controlStr1.includes(elem)); 
+            const result3 = arrStr1.length - result2.length
+            return(result3);
+                
+         }
+        alert(`Thank you! So, you entered the following text: ${myStr}dfgfg
+        And there are ${vowels(myStr)} Russian vowel letters in this text
+        forEach - ${vowels(myStr)}
+        filter - ${myFilter(myStr)}
+        reduce - ${myReduce(myStr)}`)</script>
 </body>
 </html>

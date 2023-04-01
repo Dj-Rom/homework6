@@ -10,14 +10,11 @@
     <script>let myStr = prompt('Please enter text only:');
 
 
-        function vowels(a) {
+       function vowels(a) {
             let result = 0;
             controleArray = new Array('Й', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю');
             a = a.toUpperCase().split('');
-            a.forEach(element => {
-                controleArray.forEach(elem => {
-                (element == elem)?result++:false;
-                });
+            a.forEach(element => { if(controleArray.includes(element)){result++}
             });return result
         }
         
@@ -39,9 +36,8 @@
          function myFilter(myStr2){
             const arrStr1 = myStr2.toUpperCase().split('');
             const controlStr1 = 'ЙУЕЫАОЭЯИЮ';
-            const result2 = arrStr1.filter(elem=>!controlStr1.includes(elem)); 
-            const result3 = arrStr1.length - result2.length
-            return(result3);
+            const result2 = arrStr1.filter(elem=>controlStr1.includes(elem)); 
+           return(result2.length);}
                 
          }
         alert(`Thank you! So, you entered the following text: ${myStr}dfgfg

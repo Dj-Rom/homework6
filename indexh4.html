@@ -10,7 +10,7 @@
     <script>let myStr = prompt('Please enter text only:');
 
 
-       function vowels(a) {
+        function vowels(a) {
             let result = 0;
             controleArray = new Array('Й', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю');
             a = a.toUpperCase().split('');
@@ -38,8 +38,7 @@
             const controlStr1 = 'ЙУЕЫАОЭЯИЮ';
             const result2 = arrStr1.filter(elem=>controlStr1.includes(elem)); 
            return(result2.length);}
-                
-         }
+           
         alert(`Thank you! So, you entered the following text: ${myStr}dfgfg
         And there are ${vowels(myStr)} Russian vowel letters in this text
         forEach - ${vowels(myStr)}

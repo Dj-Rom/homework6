@@ -4,45 +4,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOMEWORK</title>
+    <title>Document</title>
 </head>
 <body>
-    <script>let myStr = prompt('Please enter text only:');
-
-
-        function vowels(a) {
-            let result = 0;
-            controleArray = new Array('Й', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю');
-            a = a.toUpperCase().split('');
-            a.forEach(element => { if(controleArray.includes(element)){result++}
-            });return result
-        }
+    <input type=button value='корни' onclick='ttt()'>
+        <input type=button value='авто-тесты' onclick='squareRootsTests()'>
         
+        <script>
         
+            function squareRoots(a,b,c) {
+                // добавил а=1 при 0 так как нельзя делить на ноль
+                if(a===0){
+                    a=1;
+                }
+                const d=b*b-4*a*c; 
+                
+                console.log(a)
+                if ( d<0 )
+                    return []; 
         
+                if ( d==0 )
+                    return [ -b/(2*a) ]; 
         
-        function myReduce(myStr1){
-            const controlStr = 'ЙУЕЫАОЭЯИЮ';
-            const arrStr = myStr1.toUpperCase().split('');
-            const newReduceStr = arrStr.reduce((acc,item)=>{
-                if(!controlStr.includes(item)){return acc;}
-                else{return acc+1;}
-                },0);
-                return newReduceStr;
-         }
+                const x1=(-b+Math.sqrt(d))/(2*a);
+                const x2=(-b-Math.sqrt(d))/(2*a);
+                return [ x1, x2 ]; // два корня
+            }
         
+            function squareRootsTests() {
         
+                {
+                    console.log('тест 1,1,1 -> нет корней');
+                    const roots=squareRoots(1,1,1);
+                    console.log( (roots.length==0)
+                        ?'пройден':'НЕ ПРОЙДЕН!' )
+                }
         
-         function myFilter(myStr2){
-            const arrStr1 = myStr2.toUpperCase().split('');
-            const controlStr1 = 'ЙУЕЫАОЭЯИЮ';
-            const result2 = arrStr1.filter(elem=>controlStr1.includes(elem)); 
-           return(result2.length);}
-           
-        alert(`Thank you! So, you entered the following text: ${myStr}dfgfg
-        And there are ${vowels(myStr)} Russian vowel letters in this text
-        forEach - ${vowels(myStr)}
-        filter - ${myFilter(myStr)}
-        reduce - ${myReduce(myStr)}`)</script>
+                {
+                    console.log('тест 1,-2,-3 -> два корня 3,-1');
+                    const roots=squareRoots(1,-2,-3);
+                    console.log( ((roots.length==2)&&(roots[0]==3)&&(roots[1]==-1))
+                        ?'пройден':'НЕ ПРОЙДЕН!' )
+                }
+        
+                {
+                    console.log('тест -1,-2,15 -> два корня -5,3');
+                    const roots=squareRoots(-1,-2,15);
+                    console.log( ((roots.length==2)&&(roots[0]==-5)&&(roots[1]==3))
+                        ?'пройден':'НЕ ПРОЙДЕН!' )
+                }
+        
+                {
+                    console.log('тест 1,12,36 -> один корень -6');
+                    const roots=squareRoots(1,12,36);
+                    console.log( ((roots.length==1)&&(roots[0]==-6))
+                        ?'пройден':'НЕ ПРОЙДЕН!' )
+                }
+        
+                {
+                // не коректен тест так как D>0 =>2 корня
+                    console.log('тест 0,5,-10 -> два корня 1.5311288741492746, -6.531128874149275');
+                    const roots=squareRoots(0,5,-10);
+                    console.log( ((roots.length==2)&&(roots[0]==1.5311288741492746)&&(roots[1]==-6.531128874149275))
+                        ?'пройден':'НЕ ПРОЙДЕН!' )
+                }
+        
+            }
+        
+            function ttt() {
+                
+                const a= Number(prompt('Введите a'));
+                
+                const b=Number(prompt('Введите b'));
+                const c=Number(prompt('Введите c'));
+                
+                
+                const roots=squareRoots(a,b,c);
+        
+                if ( !roots.length )
+                    alert('корней нет!');
+                else if ( roots.length==1 )
+                    alert('один корень: '+roots[0]);
+                else
+                    
+                    alert('два корня: '+roots[0]+' и '+roots[1]);
+            }</script>
 </body>
 </html>
+

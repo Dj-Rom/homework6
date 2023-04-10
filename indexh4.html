@@ -13,9 +13,8 @@
 
     <script>
     "use strict";
-function HashStorageFunc(key, value){
+function HashStorageFunc(){
     
-    this[key] = value;
 }
 HashStorageFunc.prototype.addValue = function (key, value){
    return this[key]=value;
@@ -24,21 +23,53 @@ HashStorageFunc.prototype.getValue = function (key) {
   return this[key]
 }
 HashStorageFunc.prototype.deleteValue = function (key){
-    return (this[key])?delete this[key]:false
+  return (this[key])?false || (this[key])?delete this[key]:false:delete this[key]
 }
 HashStorageFunc.prototype.getKeys = function (key) {
     
     return Object.keys(this)
 }
-const l = new HashStorageFunc('fff', 'ffff'); 
-l.addValue(5,8);
-l.addValue(4,8);
-l.addValue(5,9);
-console.log(l);
-console.log(l.deleteValue(4));
-console.log(l);
-console.log(l.getValue(5))
-console.log(l.getKeys());
+
+
+
+const drinkStorage = new HashStorageFunc(); 
+
+
+
+// const nameDrink = document.querySelector('.button');
+// nameDrink.addEventListener('click', () => {
+//    const nameDrinkUser = prompt('Введите название напитка');
+//    const alcoholDrinkUser = confirm(' напиток алкогольный ок=ДА, отмена=НЕТ');
+//    const valueDrinkUser = prompt('рецепт его приготовления');
+//    drinkStorage.addValue(nameDrinkUser,valueDrinkUser)
+//    drinkStorage.addValue('alcohole',alcoholDrinkUser)
+//    console.log(drinkStorage); });
+// const resultDrink = document.querySelector('.button1');
+// resultDrink.addEventListener('click', () => {prompt('2');});
+// const deleteDrink = document.querySelector('.button2');
+// deleteDrink.addEventListener('click', () => {prompt('3');});
+// const allDrink = document.querySelector('.button3');
+// allDrink.addEventListener('click', () => {prompt('4');});
+drinkStorage.addValue(5,{})
+drinkStorage.addValue(6,null)
+drinkStorage.addValue(7,undefined)
+drinkStorage.addValue(10,NaN)
+drinkStorage.addValue(9,undefined)
+drinkStorage.addValue(1,'')
+
+
+
+
+
+console.log(drinkStorage);
+console.log(drinkStorage.deleteValue(5));
+console.log(drinkStorage.deleteValue(6));
+console.log(drinkStorage.deleteValue(7));
+console.log(drinkStorage.deleteValue(10));
+console.log(drinkStorage.deleteValue(9));
+console.log(drinkStorage.deleteValue(1));
+console.log(drinkStorage);
+
 </script>
 </body>
 

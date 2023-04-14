@@ -34,7 +34,7 @@ resultDrink.addEventListener('click', () => {
 
     const allInfoDrink = prompt('«получение информации о напитке»');
     const g = (drinkStorage.getValue(allInfoDrink));
-    (Object.keys(this).includes(allInfoDrink)) ?
+    (Object.keys(drinkStorage).includes(allInfoDrink)) ?
     alert(`напиток ${allInfoDrink}
     алкогольный: ${g.alcohol}
     рецепт приготовления:
